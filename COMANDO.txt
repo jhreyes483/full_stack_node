@@ -33,3 +33,5 @@ ts-node-dev index.js
 npm install -g ts-node-dev
 
 "se agrega primera ruta prueba"
+"se crea los modelos de db"
+"se crean controller y ruta"
