@@ -1,3 +1,4 @@
+---------------CREACION DEL PROYECTO--------------------------------
 npm ini
 solicita el nombre de proyecto
 solicita version
@@ -6,3 +7,19 @@ crear carpeta del proyecto
  mkdir api-rest-node
 
  mv package.json api-rest-node/package.json
+-------------------------------------------------------------------------
+INSTALACION DE DEPENDECIAS
+
+https://www.npmjs.com/
+
+"bcrypt-nodejs" : "0.0.3" 
+dependencias
+body-parser : pasea ek json en el formato correcto
+connect-multiparty :  subidas de archivo 
+express : es un framework para trabajar en node
+jwt-simple: genera un token
+moment:permite procesar fechar formatearla
+mongoose: ORM para mongo db
+mongoose-paginate-v2: paginacion
+validator: valida datos
+
