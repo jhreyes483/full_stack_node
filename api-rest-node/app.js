@@ -19,9 +19,15 @@ app.use(bodyParser.json());
 
 // Reescribir rutas
 //Ruta de prueba
+app.post('/prueba',(req, res)=>{
+    return res.status(200).send({
+        message: 'Hola mundo desde el backend node POST'
+    })
+})
+
 app.get('/prueba',(req, res)=>{
     return res.status(200).send({
-        message: 'Hola mundo desde el backend node'
+        message: 'Hola mundo desde el backend node GTE'
     })
 })
 
