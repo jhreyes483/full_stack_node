@@ -4,6 +4,7 @@
   "description": "api RESTfull con NodeJS",
   "main": "index.js",
   "scripts": {
+    "start":"nodenom index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
@@ -16,13 +17,13 @@
    "connect-multiparty": "^2.2.0",
    "express":"^4.16.4",
    "jwt-simple":"^0.5.5",
-   "moment":"^2.34.0",
+  
    "mongoose": "^5.4.9",
    "mongoose-paginate-v2":"^1.0.20",
    "validator":"^10.11.0"
   },
    "devDependencies":{
-    "nodemon":"^1.18.9"
+
    }
   }
 

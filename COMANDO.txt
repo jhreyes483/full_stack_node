@@ -23,3 +23,8 @@ mongoose: ORM para mongo db
 mongoose-paginate-v2: paginacion
 validator: valida datos
 
+// instalar las dependencias de node
+npm install
+
+// arrancar el serve
+node index.js
