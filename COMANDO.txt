@@ -1,0 +1,8 @@
+npm ini
+solicita el nombre de proyecto
+solicita version
+
+crear carpeta del proyecto
+ mkdir api-rest-node
+
+ mv package.json api-rest-node/package.json

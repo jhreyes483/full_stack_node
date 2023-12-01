@@ -1,0 +1,15 @@
+{
+  "name": "api-rest-node",
+  "version": "1.0.0",
+  "description": "api RESTfull con NodeJS",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "Javier",
+    "Reyes"
+  ],
+  "author": "\u001b[A\u001b[BJavier Reyes",
+  "license": "MIT"
+}
