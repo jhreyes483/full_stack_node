@@ -28,3 +28,8 @@ npm install
 
 // arrancar el serve
 node index.js
+o intalar libreria 
+ts-node-dev index.js
+npm install -g ts-node-dev
+
+"se agrega primera ruta prueba"

@@ -17,7 +17,13 @@ app.use(bodyParser.json());
 
 // CORS
 
-// Reescribir rutasd
+// Reescribir rutas
+//Ruta de prueba
+app.get('/prueba',(req, res)=>{
+    return res.status(200).send({
+        message: 'Hola mundo desde el backend node'
+    })
+})
 
 // Exportar modulo
 module.exports = app;
