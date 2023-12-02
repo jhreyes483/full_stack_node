@@ -17,5 +17,6 @@ router.post('/register', UserController.save);
 router.post('/login', UserController.login);
 router.put('/update', md_auth.authenticated , UserController.update);
 router.post('/upload-avatar/:id',[md_upload, md_auth.authenticated],  UserController.uploadAvatar);
+router.get('/avatar/:fileName', UserController.avatar );
 
 module.exports = router;

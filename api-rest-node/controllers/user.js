@@ -355,6 +355,23 @@ var controller = {
         
                 });
         });
+    },
+
+    avatar: function(req, res){
+        var fileName = req.params.fileName;
+        var pathFile = './uploads/users/'+fileName;
+
+        fs.exists(pathFile, (exists) => {
+            if(exists){
+                return res.sendFile(path.resolve(pathFile));
+            }else{
+                return res.status(400).send({
+                    status : 'error',
+                    msg:'La imagen no existe'
+
+                })
+            }
+        })
     }
     
 };

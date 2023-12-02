@@ -48,3 +48,5 @@ npm star
 "logica de autenticacion en middleware desde token"
 "se crea metodo de actualizacion user"
 "se crea ruta de metodo upload-avatar"
+"subida de archivo y validacion extencion"
+"metodo para ver imagenes de usuario"
