@@ -1,6 +1,7 @@
 'use strict'
 var validator = require('validator');
 var Topic     = require('../models/topic');
+const topic = require('../models/topic');
 
 var controller = {
     test: function(req, res){
@@ -47,6 +48,7 @@ var controller = {
         topic.title   = params.title;
         topic.content = params.content;
         topic.lang    = params.lang;
+        topic.user    = req.user._id;
 
 
         // Guardar el topic
@@ -69,17 +71,52 @@ var controller = {
     },
     getTopics: function(req, res){
         // cargar la libreria paginacion
+
         // Recoger la pagina actual
+        if(req.params.page == null || req.params.page == undefined || req.params.page == false || req.params.page == '0'){
+            var page = 1;
+        }else{
+            var page = parseInt( req.params.page );
+        }
         // indicar la opciones de paginacion
+        var options = {
+            sort     : { date: -1},
+            populate :  'user', // join con user
+            limit    : 5,
+            page     : page
+        }
+
+
+
         // Find paginado
-        // Devolver resultados (topics, total topics,  total de paginas)
+        Topic.paginate(
+            {}, options, (err, topics) =>{
+            if(err){
+                return res.status(500).send({
+                    status: 'error',
+                    msg: 'error al hacer la consulta'
+                })
+            }
+            if(!topics){
+                return res.status(404).send({
+                    status: 'error',
+                    msg: 'no hay topics'
+                })
+            }
 
 
-
-        return res.status(200).send({
-            status: 'success',
-            msg: 'estos son los topics'
+            // Devolver resultados (topics, total topics,  total de paginas)
+            return res.status(200).send({
+                status: 'success',
+                msg: 'estos son los topics',
+                topics: topics.docs,
+                totalDocs: topics.totalDocs,
+                totalPages: topics.totalPages,
+                page
+            })
+        
         })
+
     }
 }
 
