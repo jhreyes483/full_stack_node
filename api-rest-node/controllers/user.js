@@ -184,6 +184,7 @@ var controller = {
      
     },
     update: function(req, res){
+        // Crear middleware para comprobar el jwt token, ponerselo a la ruta
         return res.status(200).send({
             status: 'success',
             msg   : 'Metodo de actualizacion'

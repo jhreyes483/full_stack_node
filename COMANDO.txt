@@ -39,3 +39,8 @@ npm star
 "se crea los modelos de db"
 "se crean controller y ruta"
 "creacion de metodo save user"
+"se crea nueva ruta para metodo login"
+"validacion de credenciales"
+"se inicia creacion de token"
+"se instala libreria de token"
+"token y atenticacion de token"
