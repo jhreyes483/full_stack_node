@@ -5,7 +5,7 @@ var moment = require('moment');
 
 exports.createToken = function(user){
     var payload ={
-        sub     : user._id,
+        _id     : user._id,
         name    : user.name,
         surname : user.surname,
         email   : user.email,

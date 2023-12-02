@@ -8,7 +8,8 @@ var port     = process.env.PORT || 3999;
 mongoose.Promise = global.Promise;
 mongoose.connect('mongodb://localhost:27017/api_rest_node',{
     useNewUrlParser: true,
-    useUnifiedTopology: true
+    useUnifiedTopology: true,
+    useFindAndModify: false
     }).then(()=>{
         console.log('La conexion a la base de datos de mongo se ha realizado');
 

@@ -23,11 +23,17 @@ var controller = {
 
         var error = false;
         var msg   = '';
+        try{
         // Validar los datos
         var validate_name     = validator.isEmpty(params.name);
         var validate_surname  = validator.isEmpty(params.surname);
         var validate_emial    = (validator.isEmpty(params.email) || !validator.isEmail(params.email));
         var validate_password = validator.isEmpty(params.password);
+
+        }catch(err){
+            error = true 
+            msg   = 'faltan campos en la petción'
+        }
         //console.log(validate_name , validate_surname, validate_emial, validate_password);
         if(validate_name){
             error = true 
@@ -52,6 +58,7 @@ var controller = {
                 params
             });
         }
+
         // Crear objeto de usuario
         var user = new User();
 
@@ -115,9 +122,15 @@ var controller = {
         var params = req.body;
         var error  = false;
         var msg    = '';
+
+        try{
         // validar los datos
         var validate_email       = validator.isEmpty(params.email) || !validator.isEmail(params.email);
         var validate_password    = validator.isEmpty(params.password);
+        }catch(err){
+            error = true;
+            msg   = 'Faltan datos por enviar';
+        }
 
         if(validate_email){
             error = true;
@@ -184,11 +197,79 @@ var controller = {
      
     },
     update: function(req, res){
-        // Crear middleware para comprobar el jwt token, ponerselo a la ruta
-        return res.status(200).send({
-            status: 'success',
-            msg   : 'Metodo de actualizacion'
-        });
+        var params = req.body;
+        let error = false;
+        let msg   = '';
+        try{
+        var validate_name     = validator.isEmpty(params.name);
+        var validate_surname  = validator.isEmpty(params.surname);
+        var validate_emial    = (validator.isEmpty(params.email) || !validator.isEmail(params.email));
+        }catch(err){
+            error = true 
+            msg   = 'Faltan datos por enviar'
+        }
+        if(params.password){
+            delete params.password;
+        }
+        
+
+        console.log(req.user._id,'User id')
+
+        //console.log(validate_name , validate_surname, validate_emial, validate_password);
+        if(validate_name){
+            error = true 
+            msg   = 'el name esta vacio'
+        }
+        if(validate_surname){
+            error = true
+            msg   = 'el surname esta vacio'
+        }
+        if(validate_emial){
+            error = true
+            msg   = 'el email es invalido'
+        }
+        
+
+        if( error ){
+            return res.status(200).send({
+                status : 'error',
+                msg    : "parametro incorrecto "+ msg,
+                params
+            });
+        }
+
+       // User.findOneAndUpdate(condicion, datos a actualizar, opciones, callback )
+       User.findOneAndUpdate(
+        {_id: req.user._id }, 
+        params,
+            {
+                new : true /**retornar el actualizado */
+            }, 
+        (err, userUpdate) => {
+            if(err){
+                console.log(err)
+                return res.status(500).send({
+                    status: 'error',
+                    msg   : 'Error al actualizar usuario'
+                })
+            }
+            console.log(userUpdate, 'userUpdate')
+
+            if(!userUpdate){
+                return res.status(500).send({
+                    status: 'error',
+                    msg   : 'No se encontro user'
+                })
+            }
+
+
+            return res.status(200).send({
+                status: 'success',
+                msg   : 'Metodo de actualizacion',
+                user  : userUpdate
+            });
+       })
+       
     }
     
 };

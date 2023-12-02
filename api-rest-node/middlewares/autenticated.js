@@ -34,6 +34,7 @@ exports.authenticated = function(req /*request*/, res /* response */, next){
             msg: 'El token no es válido'
         })
     }
+    console.log(payload,'payload');
 
 
     // Adluntar el usuario identificado a la request

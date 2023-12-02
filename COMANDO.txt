@@ -44,3 +44,6 @@ npm star
 "se inicia creacion de token"
 "se instala libreria de token"
 "token y atenticacion de token"
+"creacion de un middleware"
+"logica de autenticacion en middleware desde token"
+"se crea metodo de actualizacion user"
