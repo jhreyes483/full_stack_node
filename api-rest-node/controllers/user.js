@@ -110,22 +110,68 @@ var controller = {
     },
 
     login: function(req, res){
-        // recoger los parametros de la peticion
-
+        // recoger los parametros de la petición
+        var params = req.body;
+        var error  = false;
+        var msg    = '';
         // validar los datos
+        var validate_email       = validator.isEmpty(params.email) || !validator.isEmail(params.email);
+        var validate_password    = validator.isEmpty(params.password);
 
+        if(validate_email){
+            error = true;
+            msg   = 'El email no es valido';
+        }
+        if(validate_password){
+            error = true;
+            msg   = 'La contraseña esta vacia';
+        }
+        if(error){
+            return res.status(200).send({
+                status : 'error',
+                msg    : "parametro incorrecto "+ msg,
+                params
+            });
+        }
+        /***************************** */
         // Buscar el usuario
+        User.findOne({email: params.email.toLowerCase()}, (err, user) =>{
+            // Si encuentra comprobar la contraseña email y password
+            if(err){
+                return res.status(500).send({
+                    status : 'error',
+                    msg    : "Error al intentar indentificarse",
+                    params
+                });
+            }
+            if(!user){
+                return res.status(404).send({
+                    status : 'error',
+                    msg    : "El usuario no existe",
+                    params
+                });
+            }
+       
+            // Si es correcto, devovler los datos
+            bcrypt.compare(params.password, user.password, (err, check) =>{
 
-        // Si encuentra comprobar la contraseña email y password
-
-        // Si es correcto, devovler los datos
-
-        // Generar toquen de jwt
-
-        return res.status(200).send({
-            status: 'success',
-            msg: 'test ini' 
-        })
+                if(check){
+                    // Generar toquen de jwt
+                    return res.status(200).send({
+                        status: 'success',
+                           msg: 'Bienvenido',
+                        user,
+                    })
+                }else{
+                    return res.status(404).send({
+                        status : 'error',
+                        msg    : "Credeciales incorrectas",
+                        params
+                    });
+                }
+            }); // end compare
+        });// end find
+     
     }
     
 };
