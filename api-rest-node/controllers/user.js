@@ -2,9 +2,11 @@
 
 var validator = require('validator');
 var bcrypt    = require('bcrypt-nodejs')
-
+var fs        = require('fs'); /* files */
+var path      = require('path'); /**file */
 var User      = require('../models/user');
 var jwt       = require('../services/jwt');
+var file_management = require('../services/file_management');
 
 var controller = {
     probando: function(req, res){
@@ -295,11 +297,63 @@ var controller = {
        
     },
     uploadAvatar: function(req, res){
+        var error = false;
+        // Configurar el modulo multparty (md)
 
-        return res.status(200).send({
-            status: 'success',
-            msg   : 'Upload avatar',
+        // recoger el fichero de la peticion
+        var file_name ='Avatar no sublido....';
 
+        if(!req.files.file){
+            error = true;
+            return res.status(404).send({
+                status: 'error',
+                msg   : 'No ha anexado el archivo',
+            });
+        }
+        // conseguir el nombre y la extencion 
+        var file_path  = req.files.file.path;
+        var file_ext   = file_management.get_ext(file_path)
+        var file_name  = file_management.get_name(file_path)
+        
+        if(file_ext != 'png' && file_ext != 'jpg' && file_ext != 'jpeg' && file_ext != 'gif'){
+            error =true;
+            file_management.delete(file_path) 
+            return res.status(200).send({
+                status: 'error',
+                msg   : 'formato incorrecto',
+                file_path,
+                file_name,
+                file_ext
+            });
+        }
+        // sacar el ide de usuario idnetificado
+        var user_id = req.user._id;
+        // Buscar y actualizar documento en db
+        User.findByIdAndUpdate(
+            {_id: user_id},
+            {image:file_name}, 
+            {new:true} 
+            ,(err, userUpdate)=>{
+                if(err || !userUpdate){
+                    error = true;
+                    return res.status(500).send({
+                        status: 'error',
+                        msg   : 'Error al guardar el usuario',
+                        file_path,
+                        file_name,
+                        file_ext
+            
+                    });
+                }
+
+                if(!error) return res.status(200).send({
+                    status: 'success',
+                    msg   : 'Upload avatar',
+                    file_path,
+                    file_name,
+                    file_ext
+        
+                });
         });
     }
     

@@ -47,3 +47,4 @@ npm star
 "creacion de un middleware"
 "logica de autenticacion en middleware desde token"
 "se crea metodo de actualizacion user"
+"se crea ruta de metodo upload-avatar"
