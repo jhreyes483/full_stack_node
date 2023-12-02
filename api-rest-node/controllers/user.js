@@ -182,6 +182,12 @@ var controller = {
             }); // end compare
         });// end find
      
+    },
+    update: function(req, res){
+        return res.status(200).send({
+            status: 'success',
+            msg   : 'Metodo de actualizacion'
+        });
     }
     
 };
