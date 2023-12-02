@@ -213,8 +213,6 @@ var controller = {
         }
         
 
-        console.log(req.user._id,'User id')
-
         //console.log(validate_name , validate_surname, validate_emial, validate_password);
         if(validate_name){
             error = true 
@@ -237,9 +235,34 @@ var controller = {
                 params
             });
         }
+        // Comprobar si el email es unico
+        if(req.user.email != params.email ){
+             // Buscar el usuario
+            User.findOne({email: params.email.toLowerCase()}, (err, user) =>{
+            // Si encuentra comprobar la contraseña email y password
+                if(err){
+                    error  = true;
+                    return res.status(500).send({
+                        status : 'error',
+                        msg    : "Error al intentar indentificarse",
+                        params
+                    });
+                }
+                if(user && user.email == params.email){
+                    error  = true;
+                    return res.status(200).send({
+                        status : 'error',
+                        msg    : "El email no puede ser modificado",
+                        params
+                    });
+                }
 
-       // User.findOneAndUpdate(condicion, datos a actualizar, opciones, callback )
-       User.findOneAndUpdate(
+            });
+        }
+
+
+    // User.findOneAndUpdate(condicion, datos a actualizar, opciones, callback )
+    if(!error) User.findOneAndUpdate(
         {_id: req.user._id }, 
         params,
             {
@@ -270,6 +293,14 @@ var controller = {
             });
        })
        
+    },
+    uploadAvatar: function(req, res){
+
+        return res.status(200).send({
+            status: 'success',
+            msg   : 'Upload avatar',
+
+        });
     }
     
 };
