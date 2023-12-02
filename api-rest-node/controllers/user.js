@@ -4,7 +4,7 @@ var validator = require('validator');
 var bcrypt    = require('bcrypt-nodejs')
 
 var User      = require('../models/user');
-
+var jwt       = require('../services/jwt');
 
 var controller = {
     probando: function(req, res){
@@ -95,6 +95,7 @@ var controller = {
                             });
                         } 
                         if(userStored){ // Devolver respuesta ok
+                            user.password = undefined
                             return res.status(200).send({
                                 status: 'success',
                                 msg: 'usuario creado',
@@ -156,12 +157,21 @@ var controller = {
             bcrypt.compare(params.password, user.password, (err, check) =>{
 
                 if(check){
-                    // Generar toquen de jwt
-                    return res.status(200).send({
-                        status: 'success',
-                           msg: 'Bienvenido',
-                        user,
-                    })
+
+                    if(params.gettoken){
+                        return res.status(200).send({
+                            // Generar toquen de jwt
+                             token : jwt.createToken(user)   
+                        })
+                    }else{
+                        user.password = undefined
+                        return res.status(200).send({
+                            status: 'success',
+                            msg   : 'Bienvenido',
+                            user,
+                        })
+                    }
+
                 }else{
                     return res.status(404).send({
                         status : 'error',
