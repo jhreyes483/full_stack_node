@@ -117,6 +117,42 @@ var controller = {
         
         })
 
+    },
+    getTopicsByUser :function(req, res){
+        // Conseguir el id del usuario
+        var userId = req.params.user;
+        var error = false;
+
+        // hacer un faind con user de usuario
+        Topic.find({
+            user: userId,
+        }).sort([['date', 'descending']])
+        .exec((err, user) =>{
+           
+            if(err){
+                error  = true;
+                return res.status(500).send({
+                    status: 'error',
+                    msg: 'error al hacer la consulta'
+                })
+            }
+            if(!user){
+                error  = true;
+                return res.status(404).send({
+                    status: 'error',
+                    msg: 'no existe topic'
+                })
+            }
+            // devolver resultado
+            if(!error) return res.status(200).send({
+                status: 'success',
+                msg: 'get my topics',
+                user,
+                error
+            })
+        })
+
+
     }
 }
 

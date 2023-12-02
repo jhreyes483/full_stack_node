@@ -52,3 +52,6 @@ npm star
 "metodo para ver imagenes de usuario"
 "motodo para consultar users"
 "creacion de archivos topic, controller y rutas"
+"crecion de dos metodos de controller topic"
+"uso de paginate en mongo db"
+"creacion de metodo getTopicByUser"
