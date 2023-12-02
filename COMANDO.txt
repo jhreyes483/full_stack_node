@@ -50,3 +50,5 @@ npm star
 "se crea ruta de metodo upload-avatar"
 "subida de archivo y validacion extencion"
 "metodo para ver imagenes de usuario"
+"motodo para consultar users"
+"creacion de archivos topic, controller y rutas"
