@@ -372,6 +372,45 @@ var controller = {
                 })
             }
         })
+    },
+
+    getUsers: function(req, res){
+        User.find().exec((err, users) => {
+            if(err || !users){
+                return res.status(400).send({
+                    status : 'error',
+                    msg:'No existen usuarios'
+
+                })
+            }else{
+                return res.status(200).send({
+                    status : 'success',
+                    msg:'Users',
+                    users
+
+                })
+            }
+        })
+
+    },
+    getUser: function(req, res){
+        var userId = req.params.userId;
+
+        User.findById(userId).exec((err, user) => {
+            if(err || !user){
+                return res.status(400).send({
+                    status : 'error',
+                    msg:'No existe el usuario'
+
+                })
+            }else{
+                return res.status(200).send({
+                    status : 'success',
+                    msg:'Users',
+                    user
+                })
+            }
+        });
     }
     
 };
