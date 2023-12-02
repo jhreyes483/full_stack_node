@@ -38,3 +38,4 @@ npm star
 "se agrega primera ruta prueba"
 "se crea los modelos de db"
 "se crean controller y ruta"
+"creacion de metodo save user"

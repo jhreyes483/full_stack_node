@@ -22,7 +22,6 @@ var controller = {
         var params = req.body;
 
         var error = false;
-        var sendResponse = false;
         var msg   = '';
         // Validar los datos
         var validate_name     = validator.isEmpty(params.name);
@@ -101,14 +100,6 @@ var controller = {
                                 msg: 'usuario creado',
                                 user: userStored
                             })
-
-                            /*
-                            return res.status(400).send({
-                                status : 'error',
-                                message: "El usuario no se ha guardado",
-                                userStored
-                            });
-                            */
                         }
 
                     }) // close save 
@@ -116,6 +107,25 @@ var controller = {
             }    
                 
         });// metodo find
+    },
+
+    login: function(req, res){
+        // recoger los parametros de la peticion
+
+        // validar los datos
+
+        // Buscar el usuario
+
+        // Si encuentra comprobar la contraseña email y password
+
+        // Si es correcto, devovler los datos
+
+        // Generar toquen de jwt
+
+        return res.status(200).send({
+            status: 'success',
+            msg: 'test ini' 
+        })
     }
     
 };
