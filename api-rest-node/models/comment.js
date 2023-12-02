@@ -1,7 +1,7 @@
 'use strict'
 
-var mongooser = require('mongoose');
-var Schema    = mongoose.Scherma;
+var mongoose  = require('mongoose');
+var Schema    = mongoose.Schema;
 
 var CommentSchema = Schema({
     content   : String,

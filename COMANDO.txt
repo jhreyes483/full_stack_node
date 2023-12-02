@@ -29,9 +29,11 @@ npm install
 // arrancar el serve
 node index.js
 o intalar libreria 
-npm install -g nodemon
+npm install -i -D nodemon
 // comando inicio
 npm star
+// recarga automatica 
+// npm run dev
 
 "se agrega primera ruta prueba"
 "se crea los modelos de db"
