@@ -36,7 +36,7 @@ var controller = {
                     var validate_content = validator.isEmpty(params.comment);
                 }catch(err){
                     error = true;
-                    msg   = 'No has comentado 2'
+                    msg   = 'No has comentado .'
                     
                 }
                 if(validate_content){
@@ -138,10 +138,58 @@ var controller = {
         )
     },
     delete: function(req, res){
-        return res.status(200).send({
-            status: 'success',
-            msg:'se elimino comentario'
-        })
+        var error     = false;
+        var msg       = '';
+        var commentId = req.params.commentId; // cuando llega por get se almacena en params
+        var topicId   = req.params.topicId;
+
+        // buscar el topíc
+        Topic.findById(topicId, (err, topic) =>{
+   
+            if(err){
+                error = true
+                msg   ='error en consulta update'
+            }
+            if(!topic){
+                error = true
+                msg   ='no existe el tema'
+            }
+            if(error){
+                return res.status(200).send({
+                    status: 'error',
+                    msg:msg
+                })
+            }
+            // Seleccionar el subdocumento (comentario)
+            var comment = topic.comments.id(commentId);
+
+            // Borrar el comentario
+            if(comment){
+                comment.remove();
+                // Guardar el topic
+                topic.save((err) =>{
+                    if(err){
+                        return res.status(404).send({
+                            status: 'error',
+                            msg:'error al gurdar tema',
+
+                        })
+                    }
+                })
+            }else{
+                return res.status(404).send({
+                    status: 'error',
+                    msg:'no existe el comentario',
+                })
+            }
+
+            return res.status(200).send({
+                status: 'success',
+                msg:'se elimino comentario',
+                topic
+            })
+
+        });
     }
 }
 
