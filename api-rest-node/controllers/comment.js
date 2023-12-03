@@ -81,10 +81,61 @@ var controller = {
 
     },
     update: function(req, res){
-        return res.status(200).send({
-            status: 'success',
-            msg:'se actualizo comentario'
-        })
+
+        // Conseguir el id que llega de la url 
+        var commentId = req.params.commentId;
+        var params    = req.body;
+        var error     = false;
+        var msg       = '';
+        try{
+            var validate_content = validator.isEmpty(params.comment);
+        }catch(err){
+            error = true;
+            msg   = 'No has comentado'
+        }
+        if((!error) && validate_content){
+            error = true;
+            msg   = 'El comentario esta vacio'
+        }
+        if(error){
+            return res.status(200).send({
+                status: 'error',
+                msg:msg
+            })
+        }
+     
+        if(!error) Topic.findOneAndUpdate(
+            {'comments._id': commentId},
+            {
+                "$set": {
+                    "comments.$.content" :params.comment
+                }
+            },
+            {new: true},
+            (err, topicUpdated) => {
+
+                if(err){
+                    error = true
+                    msg   ='error en consulta update'
+                }
+                if(!topicUpdated){
+                    error = true
+                    msg   ='no existe el tema'
+                }
+                if(error){
+                    return res.status(200).send({
+                        status: 'error',
+                        msg:msg
+                    })
+                }
+                if(!error) return res.status(200).send({
+                    status: 'success',
+                    msg:'se actualizo',
+                    topicUpdated
+                })
+                
+            }
+        )
     },
     delete: function(req, res){
         return res.status(200).send({
