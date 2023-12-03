@@ -9,13 +9,16 @@
 - Angular v17
 
 
-### Instalar dependencias
+### 2. Instalar dependencias
 - npm i
 - npm update
 
-### Iniciar proyecto en mode desarrollo
+### 3. Iniciar proyecto en mode desarrollo
 - npm run dev
 
-### nombre inicial DB en mongoDB
+### 4. Mombre inicial DB en mongoDB
 - api_rest_node
 - MogoDB Version 1.40.4
+
+### 5. host
+- http://localhost:3999/
