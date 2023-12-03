@@ -65,3 +65,7 @@ npm star
 "search con or parecido al LIKE& en mysql"
 "se agrega similar a order by"
 "configuracion dee CORS"
+
+"saber versiones disponibles de una libreria de npm
+npm show mongoose version
+"
