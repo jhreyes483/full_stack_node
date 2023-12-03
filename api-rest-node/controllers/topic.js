@@ -213,8 +213,6 @@ var controller = {
             });
         }
 
-
-
         var update = {
             title    : params.title,
             content  : params.content,
@@ -247,6 +245,30 @@ var controller = {
         });
 
     
+    },
+    delete: function(req, res){
+        
+        var params  = req.body;
+        var topicId = req.params.id;
+
+        Topic.findOneAndDelete({_id: topicId, user: req.user._id },(err, topicRemoved)=>{
+            if(err || !topicRemoved){
+                return res.status(500).send({
+                    status : 'error',
+                    msg    : 'No se ha borrado el tema'
+                });
+            }
+            
+            return res.status(200).send({
+                status: 'success',
+                msg: 'Se elimino tema',
+                topicRemoved
+            })
+        })
+      
+
+      
+
     }
 }
 

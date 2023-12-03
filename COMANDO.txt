@@ -56,3 +56,4 @@ npm star
 "uso de paginate en mongo db"
 "creacion de metodo getTopicByUser"
 "oculutar un campo ej password desde el model y creacion de metodo getTopic"
+"se crea metodo update topict"
