@@ -55,3 +55,4 @@ npm star
 "crecion de dos metodos de controller topic"
 "uso de paginate en mongo db"
 "creacion de metodo getTopicByUser"
+"oculutar un campo ej password desde el model y creacion de metodo getTopic"

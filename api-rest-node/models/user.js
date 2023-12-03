@@ -3,7 +3,7 @@
 var mongoose = require('mongoose');
 var Schema    = mongoose.Schema;
 
-var UseSchema = Schema({
+var UserSchema= Schema({
     name      : String,
     surname   : String,
     email     : String,
@@ -12,7 +12,13 @@ var UseSchema = Schema({
     role      : String
 })
 
-module.exports = mongoose.model('User', UseSchema)
+UserSchema.methods.toJSON = function(){
+    var obj = this.toObject(); 
+    delete obj.password
+    return obj;
+}
+
+module.exports = mongoose.model('User', UserSchema)
 // lowercase y pluraliza el nombre
 // nombre de coleccion:  users -> documentos con este (schema)
 

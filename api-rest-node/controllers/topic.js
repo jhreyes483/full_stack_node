@@ -151,8 +151,32 @@ var controller = {
                 error
             })
         })
+    },
+    getTopic : function(req, res){
+        // sacar id de topic de url
+        var topicId = req.params.id;
+        var error = false;
 
+        // hacer find por id del topic
+        Topic.findById(topicId)
+            .populate('user')  // join
+            .exec((err,topic)=> {
+                
+                if(err || !topic){
+                    error  = true;
+                    return res.status(500).send({
+                        status: 'error',
+                        msg: 'error al hacer la consulta topic'
+                    })
+                }
 
+                if(!error) return res.status(200).send({
+                    status: 'success',
+                    msg: 'get my topics',
+                    topic
+                })
+            })
+          
     }
 }
 
