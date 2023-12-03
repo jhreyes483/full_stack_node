@@ -1,9 +1,11 @@
  # Autor: Javier Hildebrando Reyes Neira
+ # Big data con mogoDB
  
  ## Tecnologias
  - node -v v20.10.0
  - Angular v17
-- "express": "^4.16.4",
+-  express: 4.16.4,
+-  MogoDB Version 1.40.4
 
 
 ### 1. Entorno de desarrollo optimo
