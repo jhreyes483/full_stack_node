@@ -61,3 +61,4 @@ npm star
 "se incia con la creacion de entidad comentarios"
 "guardado co relacion de dos entidades"
 "se crea metodo de actulizacion de comentario anidado en entidad"
+"se agrega metodo delete"
