@@ -177,6 +177,76 @@ var controller = {
                 })
             })
           
+    },
+    update: function(req, res){
+        var topicId = req.params.id;
+
+        var params = req.body;
+        var error  = false;
+        var msg    = '';
+        // validar datos
+        try{
+           var validate_title   = validator.isEmpty(params.title);
+           var validate_content = validator.isEmpty(params.content);
+           var validate_lang    = validator.isEmpty(params.lang);
+        }catch(err){
+            error =true;
+            msg = 'Faltan campos por enviar'
+        }
+        if(validate_title){
+            error = true;
+            msg   = 'El titulo no es valido';
+        }
+        if(validate_content){
+            error = true;
+            msg   = 'El content esta vacio';
+        }
+        if(validate_lang){
+            error = true;
+            msg   = 'El lang esta vacio';
+        }
+        if(error){
+            return res.status(200).send({
+                status : 'error',
+                msg    : "parametro incorrecto "+ msg,
+                params
+            });
+        }
+
+
+
+        var update = {
+            title    : params.title,
+            content  : params.content,
+            code     : params.code,
+            lang     : params.lang
+        } 
+
+        Topic.findOneAndUpdate({_id: topicId, user: req.user._id}, update, {new:true}, (err,topicUpdate)=>{
+            if(err){
+                return res.status(500).send({
+                    status : 'error',
+                    msg    : 'error al actualizar',
+                    params
+                });
+            }
+
+            if(!topicUpdate){
+                return res.status(404).send({
+                    status : 'error',
+                    msg    : 'No se actualizado en tema',
+                    params
+                });
+            }
+
+            return res.status(200).send({
+                status: 'success',
+                msg: 'se actualizo este tema',
+                topic: topicUpdate
+            })
+        });
+
+    
     }
 }
 
