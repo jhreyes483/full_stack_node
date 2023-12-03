@@ -62,3 +62,6 @@ npm star
 "guardado co relacion de dos entidades"
 "se crea metodo de actulizacion de comentario anidado en entidad"
 "se agrega metodo delete"
+"search con or parecido al LIKE& en mysql"
+"se agrega similar a order by"
+"configuracion dee CORS"

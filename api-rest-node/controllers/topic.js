@@ -277,7 +277,9 @@ var controller = {
             {"lang": {"$regex": searchString, "$options" : "i" /* comprueba se hay una coinsidencia en lang */ }   },
             {"code": {"$regex": searchString, "$options" : "i" /* comprueba se hay una coinsidencia en code */ }   },
         ]
-        }).exec((err, topics) =>{
+        })
+        .sort([['date','descending']])
+        .exec((err, topics) =>{
             console.log(err)
             if(err){
                 return res.status(500).send({
