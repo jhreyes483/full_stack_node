@@ -57,3 +57,5 @@ npm star
 "creacion de metodo getTopicByUser"
 "oculutar un campo ej password desde el model y creacion de metodo getTopic"
 "se crea metodo update topict"
+"creacion metodo elimina topic"
+"se incia con la creacion de entidad comentarios"

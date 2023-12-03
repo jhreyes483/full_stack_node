@@ -14,6 +14,7 @@ app.use(bodyParser.json());
 // Cargar archivos de rutas
 var user_routes  = require('./routes/user')
 var topic_routes = require('./routes/topic')
+var comment_routes = require('./routes/comment')
 
 // Middlewares
 
@@ -23,6 +24,7 @@ var topic_routes = require('./routes/topic')
 // Reescribir rutas
 app.use('/api', user_routes); //midelware
 app.use('/api',topic_routes);
+app.use('/api',comment_routes);
 
 
 
