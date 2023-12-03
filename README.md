@@ -1,4 +1,4 @@
-#Autor: Javier Hildebrando Reyes Neira
+ # Autor: Javier Hildebrando Reyes Neira
 
 
 ### 1. Entorno de desarrollo optimo
