@@ -1,4 +1,9 @@
  # Autor: Javier Hildebrando Reyes Neira
+ 
+ ## Tecnologias
+ - node -v v20.10.0
+ - Angular v17
+- "express": "^4.16.4",
 
 
 ### 1. Entorno de desarrollo optimo
@@ -6,7 +11,7 @@
 - node -v v20.10.0
 - "mongoose": "^5.13.21"
 - "nodemon": "^3.0.2"
-- Angular v17
+
 
 
 ### 2. Instalar dependencias
