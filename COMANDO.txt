@@ -59,3 +59,4 @@ npm star
 "se crea metodo update topict"
 "creacion metodo elimina topic"
 "se incia con la creacion de entidad comentarios"
+"guardado co relacion de dos entidades"
