@@ -25,3 +25,22 @@ lansar proyecto de angural
 ng serve
 
 http://localhost:4200/
+
+
+
+Instalacion por comandos
+// resaltar sintaxis de código 
+npm install --save ngx-highlight-js
+// bootstrap
+npm install bootstrap --save
+npm install jquery --save
+npm install @types/jquery --save
+
+// aternativas 
+// Permite realizar operaciones comunes con fechas,
+npm install date-fns --save
+// subida de archivos
+npm install ngx-file-drop --save
+
+
+
