@@ -68,5 +68,6 @@ npm star
 "saber versiones disponibles de una libreria de npm
 npm show mongoose version"
 "creacion de formulario registro"
+"creacion de servicio usuando HttClient"
 
 "INICIO DE FRONT-END"
