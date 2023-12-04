@@ -31,8 +31,9 @@ export class LoginComponent {
     this._userService.signup(this.user).subscribe(
       response =>{
         if(response.user && response.user._id){
-            this.identity = response.users;
+            this.identity = response.user;
             this.token    = response.token;
+
 
             if(this.token){
               localStorage.setItem('token', this.token);

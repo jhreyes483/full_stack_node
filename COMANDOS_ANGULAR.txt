@@ -57,7 +57,8 @@ ng g c components/home"
 "resolviendo problema ngForm 
 se instala npm install --save-dev @angular/compiler
 se crea primer campo validacion exprecion regular"
-
+"token persistente y login"
+"mostrar nombre user en nav"
 
 
 

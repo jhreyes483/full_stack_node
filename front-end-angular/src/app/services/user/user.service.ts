@@ -7,15 +7,14 @@ import { config } from '../config.services';
 
 @Injectable()
 export class UserService{
-    headers : any = {}
-    url     : string ;
-    token   : any;
+    headers  : any;
+    url      : string ;
+    token    : any;
     identity : any;
     constructor(private _http: HttpClient){
         this.url       = config.base_url; 
         this.token     = null;
         this.identity  = null;
-        this.headers   = {};
        // this.headers   = new HttpHeaders().set('Content-Type', 'application/json');
        this.headers = {
         'Content-Type': 'application/json',
@@ -43,7 +42,7 @@ export class UserService{
     getToken() {
         if (typeof localStorage !== 'undefined') {
           let token = localStorage.getItem('token');
-          if (token && token != "undefined") {
+          if (token && token != "undefined" && token != undefined && token != null ) {
             this.token = token;
           } else {
             this.token = null;
@@ -59,7 +58,7 @@ export class UserService{
       getIdentity() {
         if (typeof localStorage !== 'undefined') {
           let json = localStorage.getItem('identity');
-          if (json && json != "undefined") {
+          if (json && json != "undefined" && json != null && json != undefined) {
             this.identity = JSON.parse(json)
           } else {
             this.identity = this.getClearIdentity();
@@ -71,7 +70,8 @@ export class UserService{
       }
       
       getClearIdentity(){
-        return {id:'',name:'',surname:'',email:'', image:'',description:''};
+        return null;
+        //return {id:'',name:'',surname:'',email:'', image:'',description:''};
       }
 
 
