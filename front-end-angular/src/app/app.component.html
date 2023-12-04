@@ -40,6 +40,17 @@
           <li class="nav-item">
             <a class="nav-link" [routerLink]="['/login']">Login</a>
           </li>
+          <li class="nav-item" *ngIf="identity">
+            <div class="avatar_mask">
+              <div *ngIf="identity.image" class="avatar_mask"> 
+                <img src="{{url + 'api/avatar/'+ identity.image}}" class="w-100">
+            </div>
+            <div *ngIf="!identity.image" class="avatar_mask">
+                <img src="https://via.placeholder.com/400x250" class="w-100">
+            </div>
+            </div>
+
+          </li>
 
 
           <li *ngIf="identity" class="nav-item dropdown">

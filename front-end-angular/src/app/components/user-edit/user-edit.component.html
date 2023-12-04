@@ -48,15 +48,6 @@
                 El correo no es valido
             </small>
 
-            <div class="mb-3">
-                <label for="password">Cotraseña</label>
-                <input type="password" name="password" class="form-control"
-                #password="ngModel" [(ngModel)] ="user.password"
-                required>
-            </div>
-            <small *ngIf="!surname.valid && surname.touched" class="invalid-feedback d-block">
-                la contraseña no es valida
-            </small>
         </div>
         <div class="col-md-6">
             <label for="">Foto de perfil</label>
@@ -69,12 +60,12 @@
                 </div>
             </div>
 
-            
+            <!-- componente de subida imagenes -->
             <ngx-file-drop
               (onFileDrop)="dropped($event)"
               (onFileOver)="fileOver($event)"
               (onFileLeave)="fileLeave($event)"
-              dropZoneLabel="Arrastra y suelta archivos aquí">
+              dropZoneLabel="Arrastra y suelta la imagen aquí">
             </ngx-file-drop>
           
             <div *ngIf="files.length > 0">

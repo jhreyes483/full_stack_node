@@ -6,4 +6,14 @@
     width: 320px;
     overflow: hidden; /* oculta todo lo que sibrepase los 200px */
 }
+.avatar_mask{
+    width: 40px;
+    height: 40px;
+    border-radius: 900px;
+    overflow: hidden;
+}
+
+.avatar_mask img{
+    height: 40px;
+}
 

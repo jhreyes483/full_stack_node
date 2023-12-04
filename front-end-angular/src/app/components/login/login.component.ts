@@ -27,7 +27,6 @@ export class LoginComponent {
   }
 
   onSubmit(form : any){
-    alert('entro');
     console.log(this.user)
     this._userService.signup(this.user).subscribe(
       response =>{

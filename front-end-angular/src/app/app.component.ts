@@ -12,6 +12,7 @@ export class AppComponent implements OnInit, DoCheck {
   public title     = 'FORO EN ANGULAR';
   public identity : any;
   public token    : any;
+  public url      : any;
 
   constructor(
     private _userService : UserService,
@@ -20,6 +21,7 @@ export class AppComponent implements OnInit, DoCheck {
   ){
     this.identity = this._userService.getIdentity()
     this.token    = this._userService.getToken()
+    this.url      = this._userService.url
   }
 
   ngOnInit(): void {
