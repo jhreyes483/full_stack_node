@@ -42,5 +42,7 @@ npm install date-fns --save
 // subida de archivos
 npm install ngx-file-drop --save
 
+"creacion de modelos"
+
 
 
