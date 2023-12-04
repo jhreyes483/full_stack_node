@@ -170,9 +170,9 @@ var controller = {
        
             // Si es correcto, devovler los datos
             bcrypt.compare(params.password, user.password, (err, check) =>{
-
+                  
                 if(check){
-
+               
                     if(params.gettoken){
                         return res.status(200).send({
                             // Generar toquen de jwt
@@ -184,6 +184,7 @@ var controller = {
                             status: 'success',
                             msg   : 'Bienvenido',
                             user,
+                            token : jwt.createToken(user)
                         })
                     }
 

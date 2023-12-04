@@ -1,1 +1,39 @@
-<p>login works!</p>
+<div class="col-lg-12 mt-3">
+    <H1>{{ page_title }}</H1>
+    <p>
+        Identificate en el foro
+    </p>
+    <hr>
+
+    <form 
+    #loginForm ="ngForm" (ngSubmit)="onSubmit(loginForm)"
+    class="col-md-5 ml-0 pl-0">
+
+        <div class="mb-3">
+            <label for="email">Correo electronico</label>
+            <input type="email" name="email" class="form-control"
+            #email="ngModel" [(ngModel)] ="user.email"
+            required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$">
+        </div>
+        <small *ngIf="!email.valid && email.touched" class="invalid-feedback d-block">
+            El correo no es valido
+        </small>
+
+       
+        <div class="mb-3">
+            <label for="name">Contraseña</label>
+            <input type="text" name="name" class="form-control"
+            #name="ngModel" [(ngModel)] ="user.password"
+            required pattern="[a-zA-ZÀ-ÿ ñ]+">
+        </div>
+        <small *ngIf="!name.valid && name.touched" class="invalid-feedback d-block">
+            la contraseña no es valida
+        </small>
+
+        <input type="submit" class="btn btn-success " value="{{ page_title}}"
+        [disabled] ="loginForm.invalid"
+        >
+   
+
+    </form>
+</div>

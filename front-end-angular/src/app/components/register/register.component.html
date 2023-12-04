@@ -7,6 +7,11 @@
     El registro se ha completado correctamente, 
     <a [routerLink] ="['/login']">identificate aquí</a>
 </div>
+<div class="alert alert-success col-md-5 mt-3"
+*ngIf="status == 'error'">
+    El registro no se ha completado.
+</div>
+
 
 <div class="col-lg-12 mt-3">
 
