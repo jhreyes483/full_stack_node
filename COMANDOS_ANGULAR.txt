@@ -61,6 +61,9 @@ se crea primer campo validacion exprecion regular"
 "mostrar nombre user en nav"
 "actualizar nav de manera dinamica - cuando hay un cabio actuazara la varible de identity"
 "metodo logout"
+"ng g c components/user-edit
+
+"
 
 
 

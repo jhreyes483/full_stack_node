@@ -5,6 +5,7 @@ import { Routes } from '@angular/router';
 import { LoginComponent } from "./components/login/login.component";
 import { RegisterComponent } from "./components/register/register.component";
 import { HomeComponent } from './components/home/home.component';
+import { UserEditComponent } from './components/user-edit/user-edit.component';
 
 // Array de rutas
 export const routes: Routes = [
@@ -19,6 +20,10 @@ export const routes: Routes = [
     {
         path : 'inicio',
         component: HomeComponent
+    },
+    {
+        path : 'ajustes',
+        component: UserEditComponent
     },
 
 

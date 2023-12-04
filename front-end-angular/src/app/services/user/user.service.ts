@@ -16,10 +16,14 @@ export class UserService{
         this.token     = null;
         this.identity  = null;
        // this.headers   = new HttpHeaders().set('Content-Type', 'application/json');
-       this.headers = {
+
+      this.headers =  this.getToken()  ? {
         'Content-Type': 'application/json',
         'Authorization': this.getToken(),
-      }
+      } :
+      {
+        'Content-Type': 'application/json'
+      } 
     }
 
     prueba(){
