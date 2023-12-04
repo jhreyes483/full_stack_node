@@ -59,6 +59,7 @@ se instala npm install --save-dev @angular/compiler
 se crea primer campo validacion exprecion regular"
 "token persistente y login"
 "mostrar nombre user en nav"
+"actualizar nav de manera dinamica - cuando hay un cabio actuazara la varible de identity"
 
 
 

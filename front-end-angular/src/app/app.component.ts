@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, DoCheck } from '@angular/core';
 import { UserService } from './services/user/user.service';
 
 @Component({
@@ -7,7 +7,7 @@ import { UserService } from './services/user/user.service';
   styleUrl: './app.component.css',
   providers: [UserService]
 })
-export class AppComponent implements OnInit {
+export class AppComponent implements OnInit, DoCheck {
   public title     = 'FORO EN ANGULAR';
   public identity : any;
   public token    : any;
@@ -23,4 +23,10 @@ export class AppComponent implements OnInit {
     console.log(this.identity, 'identity a')
     console.log(this.token,'token a')
   }
+
+  ngDoCheck(): void {
+    this.identity = this._userService.getIdentity()
+  }
+
+ 
 }
