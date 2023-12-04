@@ -32,9 +32,8 @@ Instalacion por comandos
 // resaltar sintaxis de código 
 npm install --save ngx-highlight-js
 // bootstrap
-npm install bootstrap --save
-npm install jquery --save
-npm install @types/jquery --save
+npm install bootstrap@5 @popperjs/core
+
 
 // aternativas 
 // Permite realizar operaciones comunes con fechas,
@@ -43,6 +42,10 @@ npm install date-fns --save
 npm install ngx-file-drop --save
 
 "creacion de modelos"
+"se agregan los estilos de bootstrap en angular.json y nav"
+
+npm install popper.js
+
 
 
 

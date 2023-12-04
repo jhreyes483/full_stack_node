@@ -18,11 +18,14 @@
     "@angular/platform-browser": "^17.0.0",
     "@angular/platform-browser-dynamic": "^17.0.0",
     "@angular/router": "^17.0.0",
+    "@popperjs/core": "^2.11.8",
     "@types/jquery": "^3.5.29",
     "bootstrap": "^5.3.2",
+    "font-awesome.css": "^4.7.2",
     "jquery": "^3.7.1",
     "ngx-file-drop": "^16.0.0",
     "ngx-highlight-js": "^17.0.0",
+ 
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.14.2"
