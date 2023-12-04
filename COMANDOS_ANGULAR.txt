@@ -42,9 +42,10 @@ npm install date-fns --save
 npm install ngx-file-drop --save
 
 "creacion de modelos"
-"se agregan los estilos de bootstrap en angular.json y nav"
-
-npm install popper.js
+"se agrega libreria bootstrap y en angular.json y creacion de nav"
+"se actualiza nav y se crea componente registro y login
+ng g c components/register
+ng g c components/login"
 
 
 
