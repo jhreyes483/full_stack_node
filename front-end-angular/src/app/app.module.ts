@@ -15,6 +15,10 @@ import { HomeComponent } from './components/home/home.component';
 import { UserService } from './services/user/user.service';
 import { UserEditComponent } from './components/user-edit/user-edit.component';
 import { NgxFileDropModule } from 'ngx-file-drop';
+import { ListComponent } from './modules/panel/components/list/list.component';
+import { EditComponent } from './modules/panel/components/edit/edit.component';
+import { AddComponent } from './modules/panel/components/add/add.component';
+import { MainComponent } from './modules/panel/components/main/main.component';
 
 
 @NgModule({
@@ -23,7 +27,11 @@ import { NgxFileDropModule } from 'ngx-file-drop';
     RegisterComponent,
     LoginComponent,
     HomeComponent,
-    UserEditComponent
+    UserEditComponent,
+    ListComponent,
+    EditComponent,
+    AddComponent,
+    MainComponent
   ],
   imports: [
     BrowserModule,

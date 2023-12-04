@@ -63,6 +63,8 @@ se crea primer campo validacion exprecion regular"
 "metodo logout"
 "ng g c components/user-edit"
 "metodo de subida imagen avatar y actualizacion de usuario"
+"se genera estructura por componententes
+ng g c modules/panel/components/main"
 
 
 
