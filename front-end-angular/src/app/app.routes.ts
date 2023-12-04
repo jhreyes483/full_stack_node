@@ -4,6 +4,7 @@ import { Routes } from '@angular/router';
 // Importar componentes
 import { LoginComponent } from "./components/login/login.component";
 import { RegisterComponent } from "./components/register/register.component";
+import { HomeComponent } from './components/home/home.component';
 
 // Array de rutas
 export const routes: Routes = [
@@ -14,6 +15,10 @@ export const routes: Routes = [
     {
         path : 'registro',
         component: RegisterComponent
+    },
+    {
+        path : 'inicio',
+        component: HomeComponent
     },
 
 

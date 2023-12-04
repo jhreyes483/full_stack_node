@@ -46,7 +46,10 @@ npm install ngx-file-drop --save
 "se actualiza nav y se crea componente registro y login
 ng g c components/register
 ng g c components/login"
-"creacion de router"
+
+"configuracion y creacion de router"
+"creacion de nuevo componente
+ng g c components/home"
 
 
 
