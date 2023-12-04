@@ -14,6 +14,7 @@ import { LoginComponent } from './components/login/login.component';
 import { HomeComponent } from './components/home/home.component';
 import { UserService } from './services/user/user.service';
 import { UserEditComponent } from './components/user-edit/user-edit.component';
+import { NgxFileDropModule } from 'ngx-file-drop';
 
 
 @NgModule({
@@ -29,6 +30,7 @@ import { UserEditComponent } from './components/user-edit/user-edit.component';
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
+    NgxFileDropModule,
     RouterModule.forRoot(routes),
 
   ],

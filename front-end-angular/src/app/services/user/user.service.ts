@@ -43,6 +43,21 @@ export class UserService{
         return this._http.post(this.url+'api/login',params, {headers : this.headers} )
     }
 
+    uploadImage(file : any, user : any): Observable<any>{
+
+      let formData = new FormData();
+      formData.append('file', file);
+
+      let url = this.url+'api/upload-avatar/'+user._id
+      return this._http.post(url ,formData, {headers : {'Authorization': this.getToken()}} )
+    }
+
+    update(user : any): Observable<any>{
+      let params = JSON.stringify(user);
+      console.log(this.headers);
+      return this._http.put(this.url+'api/update/', params, {headers :  this.headers })
+    }
+
     getToken() {
         if (typeof localStorage !== 'undefined') {
           let token = localStorage.getItem('token');

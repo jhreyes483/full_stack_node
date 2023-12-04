@@ -2,65 +2,97 @@
 <hr>
 <br>
 
-<div class="alert alert-success col-md-5 mt-3"
+<div class="alert alert-success col-md-6 mt-3"
 *ngIf="status == 'success'">
-    El registro se ha completado correctamente, 
-    <a [routerLink] ="['/login']">identificate aquí</a>
+    Sus datos han sido actualizados
 </div>
-<div class="alert alert-success col-md-5 mt-3"
+<div class="alert alert-danger col-md-6 mt-3"
 *ngIf="status == 'error'">
-    El registro no se ha completado.
+    No se completo actualización
 </div>
 
 
-<div class="col-lg-12 mt-3">
+<div class="container">
 
-    <form class="col-md-5 ml-0 pl-0"
-    #registerForm ="ngForm" (ngSubmit) ="onSubmit(registerForm)"
-    >
-        <div class="mb-3">
-            <label for="name">Nombre</label>
-            <input type="text" name="name" class="form-control"
-            #name="ngModel" [(ngModel)] ="user.name"
-            required pattern="[a-zA-ZÀ-ÿ ñ]+">
-        </div>
-        <small *ngIf="!name.valid && name.touched" class="invalid-feedback d-block">
-            El nombre no es valido
-        </small>
-
-        <div class="mb-3">
-            <label for="surname">Apellido</label>
-            <input type="text" name="surname" class="form-control"
-            #surname="ngModel" [(ngModel)] ="user.surname"
-            required pattern="[a-zA-ZÀ-ÿ ñ]+">
-        </div>
-        <small *ngIf="!surname.valid && surname.touched" class="invalid-feedback d-block">
-            El Apellidos no son validos
-        </small>
-
-        <div class="mb-3">
-            <label for="email">Correo electronico</label>
-            <input type="email" name="email" class="form-control"
-            #email="ngModel" [(ngModel)] ="user.email"
-            required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$">
-        </div>
-        <small *ngIf="!email.valid && email.touched" class="invalid-feedback d-block">
-            El correo no es valido
-        </small>
-
-        <div class="mb-3">
-            <label for="password">Cotraseña</label>
-            <input type="password" name="password" class="form-control"
-            #password="ngModel" [(ngModel)] ="user.password"
-            required>
-        </div>
-        <small *ngIf="!surname.valid && surname.touched" class="invalid-feedback d-block">
-            la contraseña no es valida
-        </small>
-
-        <input type="submit" class="btn btn-success " value="{{ page_title}}"
-        [disabled] ="registerForm.invalid"
+    <form  class="col-md-12 row mx-auto mt-3"
+        #registerForm ="ngForm" (ngSubmit) ="onSubmit(registerForm)"
         >
+        <div class="col-md-6">
+            <div class="mb-3">
+                <label for="name">Nombre</label>
+                <input type="text" name="name" class="form-control"
+                #name="ngModel" [(ngModel)] ="user.name"
+                required pattern="[a-zA-ZÀ-ÿ ñ]+">
+            </div>
+            <small *ngIf="!name.valid && name.touched" class="invalid-feedback d-block">
+                El nombre no es valido
+            </small>
+
+            <div class="mb-3">
+                <label for="surname">Apellido</label>
+                <input type="text" name="surname" class="form-control"
+                #surname="ngModel" [(ngModel)] ="user.surname"
+                required pattern="[a-zA-ZÀ-ÿ ñ]+">
+            </div>
+            <small *ngIf="!surname.valid && surname.touched" class="invalid-feedback d-block">
+                El Apellidos no son validos
+            </small>
+
+            <div class="mb-3">
+                <label for="email">Correo electronico</label>
+                <input type="email" name="email" class="form-control"
+                #email="ngModel" [(ngModel)] ="user.email"
+                required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$">
+            </div>
+            <small *ngIf="!email.valid && email.touched" class="invalid-feedback d-block">
+                El correo no es valido
+            </small>
+
+            <div class="mb-3">
+                <label for="password">Cotraseña</label>
+                <input type="password" name="password" class="form-control"
+                #password="ngModel" [(ngModel)] ="user.password"
+                required>
+            </div>
+            <small *ngIf="!surname.valid && surname.touched" class="invalid-feedback d-block">
+                la contraseña no es valida
+            </small>
+        </div>
+        <div class="col-md-6">
+            <label for="">Foto de perfil</label>
+            <div class="post-image-edit mx-auto mb-3">
+                <div *ngIf="user.image" class="w-100">
+                    <img src="{{url + 'api/avatar/'+ user.image}}" class="w-100">
+                </div>
+                <div *ngIf="!user.image" class="w-100">
+                    <img src="https://via.placeholder.com/400x250" class="w-100">
+                </div>
+            </div>
+
+            
+            <ngx-file-drop
+              (onFileDrop)="dropped($event)"
+              (onFileOver)="fileOver($event)"
+              (onFileLeave)="fileLeave($event)"
+              dropZoneLabel="Arrastra y suelta archivos aquí">
+            </ngx-file-drop>
+          
+            <div *ngIf="files.length > 0">
+              <h4>Archivos seleccionados:</h4>
+              <ul>
+                <li *ngFor="let file of files">
+                  {{ file.relativePath }} - {{ file.fileEntry.name }}
+                </li>
+              </ul>
+            </div>
+        </div>
+   
+        <div class="text-center">
+            <input type="submit" class="mt-3 btn btn-success col-md-4 " value="{{ page_title}}"
+            [disabled] ="registerForm.invalid"
+            >
+        </div>
+        
     </form>
 
 </div>
