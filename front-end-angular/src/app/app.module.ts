@@ -3,6 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { FormsModule } from '@angular/forms';
 
 import { RouterModule } from '@angular/router';
 import { routes } from './app.routes';
@@ -10,6 +11,7 @@ import { routes } from './app.routes';
 import { RegisterComponent } from './components/register/register.component';
 import { LoginComponent } from './components/login/login.component';
 import { HomeComponent } from './components/home/home.component';
+
 
 
 
@@ -23,9 +25,13 @@ import { HomeComponent } from './components/home/home.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    RouterModule.forRoot(routes)
+    FormsModule,
+    RouterModule.forRoot(routes),
+
   ],
-  providers: [],
+  providers: [
+    FormsModule
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

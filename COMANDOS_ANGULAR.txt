@@ -33,6 +33,8 @@ Instalacion por comandos
 npm install --save ngx-highlight-js
 // bootstrap
 npm install bootstrap@5 @popperjs/core
+// compativilidad de formControl
+npm install --save-dev @angular/compiler
 
 
 // aternativas 
@@ -50,6 +52,11 @@ ng g c components/login"
 "configuracion y creacion de router"
 "creacion de nuevo componente
 ng g c components/home"
+"diseño de jumbotron bootstrap"
+
+"resolviendo problema ngForm 
+se instala npm install --save-dev @angular/compiler
+se crea primer campo validacion exprecion regular"
 
 
 
