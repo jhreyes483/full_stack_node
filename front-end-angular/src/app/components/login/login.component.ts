@@ -47,8 +47,6 @@ export class LoginComponent {
         }else{
           this.status = 'error';
         }
-
-        console.log(response,'response')
       },
       error =>{
 
