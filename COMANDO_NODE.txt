@@ -67,5 +67,6 @@ npm star
 "configuracion dee CORS"
 "saber versiones disponibles de una libreria de npm
 npm show mongoose version"
+"creacion de formulario registro"
 
 "INICIO DE FRONT-END"

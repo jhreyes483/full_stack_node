@@ -7,12 +7,11 @@ import { FormsModule } from '@angular/forms';
 
 import { RouterModule } from '@angular/router';
 import { routes } from './app.routes';
+import { HttpClientModule } from '@angular/common/http';
 
 import { RegisterComponent } from './components/register/register.component';
 import { LoginComponent } from './components/login/login.component';
 import { HomeComponent } from './components/home/home.component';
-
-
 
 
 @NgModule({
@@ -26,6 +25,7 @@ import { HomeComponent } from './components/home/home.component';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
+    HttpClientModule,
     RouterModule.forRoot(routes),
 
   ],
