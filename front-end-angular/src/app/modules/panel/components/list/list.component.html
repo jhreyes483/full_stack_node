@@ -13,7 +13,7 @@
         <tbody *ngFor="let topic of topics">
             <tr>
                 <td>{{ topic.title}}</td>
-                <td>{{ topic.date}}</td>
+                <td>{{ topic.date | date:'yyyy-MM-dd HH:mm:ss' }}</td>
                 <td>
                     <a href="" class="btn btn-sm btn-warning m-1">Editar</a>
 

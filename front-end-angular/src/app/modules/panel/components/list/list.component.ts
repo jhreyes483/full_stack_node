@@ -4,6 +4,7 @@ import { Router, ActivatedRoute, Params } from '@angular/router';
 import { Topic } from '../../../../models/topic';
 import { UserService } from '../../../../services/user/user.service';
 import { TopicService } from '../../../../services/topic/topic.service';
+import { DatePipe } from '@angular/common'; 
 
 @Component({
   selector: 'app-list',
@@ -22,7 +23,8 @@ export class ListComponent implements OnInit  {
     private _route        : Router,
     private _routes       : ActivatedRoute,
     private _userService  : UserService,
-    private _topicService : TopicService
+    private _topicService : TopicService,
+    private datePipe      : DatePipe
   ){
     this.page_title = 'Mis temas'
     this.status     = ''
