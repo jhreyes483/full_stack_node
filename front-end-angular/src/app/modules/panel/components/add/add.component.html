@@ -1,1 +1,52 @@
-<p>add works!</p>
+<div class="col-log-10">
+    <h3>{{page_title}}</h3>
+    <hr>
+
+    <form #addTopic ="ngForm" (ngSubmit) ="onSubmit(addTopic)">
+
+        <div class="mb-3">
+            <label for="title">Titule</label>
+            <input type="text" name="title" class="form-control"
+            #title="ngModel" [(ngModel)] ="topic.title"
+            required>
+        </div>
+        <small *ngIf="!title.valid && title.touched" class="invalid-feedback d-block">
+            El titulo no es valido
+        </small>
+
+        <div class="mb-3">
+            <label for="content">pon tu preguta o contenido</label>
+            <textarea type="text" name="content" class="form-control"
+            #content="ngModel" [(ngModel)] ="topic.content"
+            required>{{topic.content}}</textarea>
+        </div>
+        <small *ngIf="!content.valid && content.touched" class="invalid-feedback d-block">
+            El contenido no son validos
+        </small>
+
+        <div class="mb-3">
+            <label for="code">Codigo </label>
+            <textarea type="text" name="code" class="form-control"
+            #code="ngModel" [(ngModel)] ="topic.code"
+            required>{{topic.code}}</textarea>
+        </div>
+        <small *ngIf="!code.valid && code.touched" class="invalid-feedback d-block">
+            El  codigo no es valido
+        </small>
+
+        <div class="mb-3">
+            <label for="lang">¿Sobre que lenguaje hablas?</label>
+            <input type="text" name="lang" class="form-control"
+            #lang="ngModel" [(ngModel)] ="topic.lang"
+            required>
+        </div>
+        <small *ngIf="!lang.valid && lang.touched" class="invalid-feedback d-block">
+            El lenguaje no es válido
+        </small>
+
+
+        <input type="submit" class="btn btn-success " value="{{ page_title }}"
+        [disabled] ="addTopic.invalid"
+        >
+    </form>
+</div>
