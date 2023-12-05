@@ -1,4 +1,5 @@
 // Importar los modulos del router
+/* archivo se debe crear manualmente */
 import { Routes } from '@angular/router';
 
 // Importar componentes

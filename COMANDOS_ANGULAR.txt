@@ -65,6 +65,7 @@ se crea primer campo validacion exprecion regular"
 "metodo de subida imagen avatar y actualizacion de usuario"
 "se genera estructura por componententes
 ng g c modules/panel/components/main"
+"archivos manuales de modelo independiente"
 
 
 

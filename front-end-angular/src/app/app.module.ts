@@ -9,16 +9,16 @@ import { RouterModule } from '@angular/router';
 import { routes } from './app.routes';
 import { HttpClientModule } from '@angular/common/http';
 
+/** importacion de modulo independiente */
+import { PanelModule } from './modules/panel/panel.module';
+
 import { RegisterComponent } from './components/register/register.component';
 import { LoginComponent } from './components/login/login.component';
 import { HomeComponent } from './components/home/home.component';
 import { UserService } from './services/user/user.service';
 import { UserEditComponent } from './components/user-edit/user-edit.component';
 import { NgxFileDropModule } from 'ngx-file-drop';
-import { ListComponent } from './modules/panel/components/list/list.component';
-import { EditComponent } from './modules/panel/components/edit/edit.component';
-import { AddComponent } from './modules/panel/components/add/add.component';
-import { MainComponent } from './modules/panel/components/main/main.component';
+
 
 
 @NgModule({
@@ -27,11 +27,7 @@ import { MainComponent } from './modules/panel/components/main/main.component';
     RegisterComponent,
     LoginComponent,
     HomeComponent,
-    UserEditComponent,
-    ListComponent,
-    EditComponent,
-    AddComponent,
-    MainComponent
+    UserEditComponent
   ],
   imports: [
     BrowserModule,
@@ -40,6 +36,7 @@ import { MainComponent } from './modules/panel/components/main/main.component';
     HttpClientModule,
     NgxFileDropModule,
     RouterModule.forRoot(routes),
+    PanelModule
 
   ],
   providers: [
