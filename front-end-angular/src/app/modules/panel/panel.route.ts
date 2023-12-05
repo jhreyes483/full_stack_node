@@ -21,7 +21,7 @@ const panelRoutes: Routes = [
                 component: AddComponent
             },
             { 
-                path: 'lsitado',
+                path: 'listado',
                 component: ListComponent
             },
             { 
