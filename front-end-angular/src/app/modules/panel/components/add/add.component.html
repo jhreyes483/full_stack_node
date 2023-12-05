@@ -1,6 +1,20 @@
+
+
 <div class="col-log-10">
     <h3>{{page_title}}</h3>
     <hr>
+
+    <div class="alert alert-success col-md-5 mt-3"
+        *ngIf="status == 'success'">
+            Ha guardado su tema
+    </div>
+    <div class="alert alert-danger col-md-5 mt-3"
+    *ngIf="status == 'error'">
+        Error al guardar
+    </div>
+
+
+
 
     <form #addTopic ="ngForm" (ngSubmit) ="onSubmit(addTopic)">
 
@@ -28,7 +42,7 @@
             <label for="code">Codigo </label>
             <textarea type="text" name="code" class="form-control"
             #code="ngModel" [(ngModel)] ="topic.code"
-            required>{{topic.code}}</textarea>
+            >{{topic.code}}</textarea>
         </div>
         <small *ngIf="!code.valid && code.touched" class="invalid-feedback d-block">
             El  codigo no es valido

@@ -68,6 +68,7 @@ ng g c modules/panel/components/main"
 "archivos manuales de modelo independiente"
 "Maquetacion con bootstrap nav tabs y routeLinks de componentes child"
 "creacion de componente add"
+"se termina componente crear topic"
 
 
 

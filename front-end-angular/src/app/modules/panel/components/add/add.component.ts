@@ -32,13 +32,12 @@ export class AddComponent {
   }
 
   onSubmit(form : any){
-      console.log(this.topic )
-      console.log(this._topicService.prueba);
       this._topicService.addTopic(this.topic).subscribe(
         response => {
           console.log(response,'ppp')
           if (response.status == 'success') {
             this.status = 'success'
+            this._route.navigate(['/panel']);
           }
         },
         error => {
