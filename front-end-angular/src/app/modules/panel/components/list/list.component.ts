@@ -4,7 +4,7 @@ import { Router, ActivatedRoute, Params } from '@angular/router';
 import { Topic } from '../../../../models/topic';
 import { UserService } from '../../../../services/user/user.service';
 import { TopicService } from '../../../../services/topic/topic.service';
-import { DatePipe } from '@angular/common'; 
+
 
 @Component({
   selector: 'app-list',
@@ -24,12 +24,13 @@ export class ListComponent implements OnInit  {
     private _routes       : ActivatedRoute,
     private _userService  : UserService,
     private _topicService : TopicService,
-    private datePipe      : DatePipe
+
   ){
     this.page_title = 'Mis temas'
     this.status     = ''
     this.identity   = this._userService.getIdentity()
     this.token      = this._userService.getToken()
+    this.topics     = null;
   }
 
   ngOnInit(): void {
@@ -43,6 +44,7 @@ export class ListComponent implements OnInit  {
    
         if (response.status == 'success') {
           this.topics = response.topics
+        //  this.topics = null
           console.log(this.topics,'ffffa')
           this.status = 'success'
         }
