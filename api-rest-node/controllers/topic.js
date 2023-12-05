@@ -147,7 +147,7 @@ var controller = {
             if(!error) return res.status(200).send({
                 status: 'success',
                 msg: 'get my topics',
-                user,
+                topics: user,
                 error
             })
         })

@@ -37,6 +37,10 @@ export class TopicService {
             return this._http.post(this.url + 'api/topic', params, { headers: this.headers })
         }
 
+        getTopicsByUser(userId :any): Observable<any>{
+          return this._http.get(this.url + 'api/user-topics/'+userId, { headers: this.headers })
+        }
+
 
 
 
